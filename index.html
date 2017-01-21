@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width">
     <title>JS Bin</title>
     <script>
-      var workshop = getQueryStringParam(location.href, 'ws')
-      var exercise = getQueryStringParam(location.href, 'e')
-      var urlToRedirectTo = `https://docs.google.com/a/doddsfamily.us/forms/d/e/1FAIpQLSdKelqZCyzlRl5m-gLP58qXknxNW5oITEERyKVsC5ejlnLTlA/viewform?entry.972330332=${encodeURIComponent(workshop)}&entry.370859510=${encodeURIComponent(exercise)}`
+      var workshop = getQueryStringParam(location.href, 'ws') || ''
+      var exercise = getQueryStringParam(location.href, 'e') || ''
+      var email = getQueryStringParam(location.href, 'em') || ''
+      var urlToRedirectTo = `https://docs.google.com/a/doddsfamily.us/forms/d/e/1FAIpQLSdKelqZCyzlRl5m-gLP58qXknxNW5oITEERyKVsC5ejlnLTlA/viewform?entry.972330332=${encodeURIComponent(workshop)}&entry.370859510=${encodeURIComponent(exercise)}&entry.214574779=${encodeURIComponent(email)}`
       window.location.replace(urlToRedirectTo)
       function getQueryStringParam(url, name) {
         var regexReadyName = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]')
