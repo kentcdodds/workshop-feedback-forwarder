@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <script>
+      var workshop = getQueryStringParam(location.href, 'ws')
+      var exercise = getQueryStringParam(location.href, 'e')
+      var urlToRedirectTo = `https://docs.google.com/a/doddsfamily.us/forms/d/e/1FAIpQLSdKelqZCyzlRl5m-gLP58qXknxNW5oITEERyKVsC5ejlnLTlA/viewform?entry.972330332=${encodeURIComponent(workshop)}&entry.370859510=${encodeURIComponent(exercise)}`
+      window.location.replace(urlToRedirectTo)
+      function getQueryStringParam(url, name) {
+        var regexReadyName = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]')
+        var regex = new RegExp(`[\\?&]${regexReadyName}=([^&#]*)`)
+        var results = regex.exec(url)
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '))
+      }
+    </script>
+  </head>
+  <body>
+    You are being redirected... Hopefully... If not, pop open your console and see if you can figure out what the problem is!
+  </body>
+</html>
